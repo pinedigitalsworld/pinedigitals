@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Statik betikler ve kurulu ajan skill dosyaları
+    "public/**",
+    ".agents/**",
+    ".claude/**",
   ]),
 ]);
 

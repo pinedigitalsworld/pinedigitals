@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 
+/* Sırayla çalışması gereken betikler: gsap → ScrollTrigger → lenis → ana animasyon → arayüz */
 const SOURCES = [
   "/vendor/gsap.min.js",
   "/vendor/ScrollTrigger.min.js",
@@ -10,24 +11,18 @@ const SOURCES = [
   "/js/ui.js",
 ];
 
-function load(src: string) {
-  return new Promise<HTMLScriptElement>((resolve, reject) => {
-    const el = document.createElement("script");
-    el.src = src;
-    el.onload = () => resolve(el);
-    el.onerror = reject;
-    document.body.appendChild(el);
-  });
-}
-
 export default function Scripts() {
   useEffect(() => {
     const w = window as unknown as { __pineLoaded?: boolean };
     if (w.__pineLoaded) return;
     w.__pineLoaded = true;
-    (async () => {
-      for (const src of SOURCES) await load(src);
-    })();
+    /* async=false: hepsi aynı anda indirilir, ama eklenme sırasıyla çalışır */
+    for (const src of SOURCES) {
+      const el = document.createElement("script");
+      el.src = src;
+      el.async = false;
+      document.body.appendChild(el);
+    }
   }, []);
   return null;
 }

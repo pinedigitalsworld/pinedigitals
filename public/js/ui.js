@@ -78,8 +78,8 @@
 
   /* on phones, suggest a bigger screen once per visit */
   const notice = document.getElementById("notice");
-  const seen = () => { try { return sessionStorage.getItem("lucid-notice") === "1"; } catch (_) { return false; } };
-  const hideNotice = () => { notice.classList.remove("show"); setTimeout(() => { notice.hidden = true; }, 600); try { sessionStorage.setItem("lucid-notice", "1"); } catch (_) {} };
+  const seen = () => { try { return sessionStorage.getItem("pine-notice") === "1"; } catch (_) { return false; } };
+  const hideNotice = () => { notice.classList.remove("show"); setTimeout(() => { notice.hidden = true; }, 600); try { sessionStorage.setItem("pine-notice", "1"); } catch (_) {} };
   /* a phone is a narrow window, or a touch screen whose short side is phone sized (some in app browsers report a wide window) */
   const isPhone = () => matchMedia("(max-width: 720px)").matches || (matchMedia("(pointer: coarse)").matches && Math.min(screen.width, screen.height) < 600);
   if (isPhone() && !seen()){
@@ -93,7 +93,7 @@
       const t = document.createElement("textarea"); t.value = url; t.setAttribute("readonly", ""); t.style.cssText = "position:fixed;opacity:0";
       document.body.appendChild(t); t.select(); try { ok = document.execCommand("copy"); } catch (_) {} t.remove();
     }
-    if (ok){ b.textContent = "Link copied"; setTimeout(hideNotice, 1100); }
+    if (ok){ b.textContent = "Bağlantı kopyalandı"; setTimeout(hideNotice, 1100); }
   });
 
   /* copy the email address, with a tick and a short "Copied" note */
@@ -107,7 +107,7 @@
       document.body.appendChild(t); t.select(); try { ok = document.execCommand("copy"); } catch (_) {} t.remove();
     }
     if (!ok) return;
-    copyBtn.classList.add("done"); copyStatus.textContent = "Email address copied";
+    copyBtn.classList.add("done"); copyStatus.textContent = "E-posta adresi kopyalandı";
     clearTimeout(copyTimer); copyTimer = setTimeout(() => { copyBtn.classList.remove("done"); copyStatus.textContent = ""; }, 1800);
   });
 })();

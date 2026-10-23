@@ -1,13 +1,12 @@
 
-<div class="frame">
+<main class="frame" id="main">
   <div class="stage" id="stage">
     <canvas class="dust" id="dust" aria-hidden="true"></canvas>
     <div class="grain" aria-hidden="true"><i class="g1"></i><i class="g2"></i><i class="g3"></i></div>
 
     <header class="top">
-      <div class="brand"><span class="who">Pine Dijital</span><span class="status"><i aria-hidden="true"></i>Yeni projelere açığız</span></div>
-      <nav class="nav" aria-label="Sections">
-        <button class="sound" id="sound" aria-pressed="false" aria-label="Turn background music on"><span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="sound-label">Ses kapalı</span><span class="sound-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 17.5V5.5l10-2v12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="17.5" r="2.6" fill="currentColor"/><circle cx="16.5" cy="15.5" r="2.6" fill="currentColor"/></svg><span class="hint-click">Ses için tıkla</span><span class="hint-tap">Ses için dokun</span></span></button>
+      <div class="brand"><span class="who"><img src="/logo-header.svg" alt="Pine Dijital" width="438" height="184" decoding="async"></span><span class="status"><i aria-hidden="true"></i>Yeni projelere açığız</span></div>
+      <nav class="nav" aria-label="Bölümler">
         <button data-go="work">İşler</button>
         <button data-go="about">Hakkımızda</button>
         <button data-go="contact">İletişim</button>
@@ -18,7 +17,7 @@
     <div class="tunnel" id="tunnel" aria-hidden="true"></div>
 
     <!-- 0. Hero, and later the contact ending -->
-    <section class="layer is-first" id="hero" data-bg="turmeric" aria-label="Introduction">
+    <section class="layer is-first" id="hero" data-bg="turmeric" aria-label="Giriş">
       <div class="hero-inner" id="heroInner">
         <svg class="birds" id="birds" viewBox="0 0 220 90" aria-hidden="true">
           <path class="bird" d="M10 60 Q20 48 30 58 Q40 48 50 60" />
@@ -29,7 +28,7 @@
         <div class="hero-top">
           <p class="kicker" data-amp="7">Bolu’dan, fikrin tam içine</p>
           <div class="name-wrap" id="nameWrap">
-            <h1 class="name" id="name"><span>Pine</span> <span>Dijital</span></h1>
+            <h1 class="name" id="name"><span lang="en">Pine</span> <span>Dijital</span></h1>
             <div class="sel" id="sel" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
             <em class="dim" id="dim" aria-hidden="true">0 × 0</em>
           </div>
@@ -73,11 +72,11 @@
   <path class="skin" d="M306 362 Q320 354 334 362 Q320 374 306 362 Z"/>
   <!-- thoughts escaping -->
   <g id="thoughts">
-    <g class="th"><circle cx="400" cy="186" r="15" fill="#E2527F" stroke="#000" stroke-width="3"/></g>
-    <g class="th"><circle cx="452" cy="146" r="19" fill="#6477DB" stroke="#000" stroke-width="3"/></g>
+    <g class="th"><circle cx="400" cy="186" r="15" fill="#F16726" stroke="#000" stroke-width="3"/></g>
+    <g class="th"><circle cx="452" cy="146" r="19" fill="#7FB8A4" stroke="#000" stroke-width="3"/></g>
     <g class="th"><circle cx="420" cy="100" r="12" fill="#fff" stroke="#000" stroke-width="3"/></g>
     <g class="th"><path d="M500 88 L518 116 L512 132 L488 132 L482 116 Z" fill="#fff" stroke="#000" stroke-width="3" stroke-linejoin="round"/><path d="M500 88 L500 112" stroke="#000" stroke-width="2.5"/><circle cx="500" cy="115" r="4" fill="#000"/><rect x="486" y="132" width="28" height="8" rx="2" fill="#000"/></g>
-    <g class="th"><path d="M470 52 Q500 30 532 44 Q504 70 470 52 Z" fill="#5AA84F" stroke="#000" stroke-width="3" stroke-linejoin="round"/><path d="M474 52 Q502 46 528 45" fill="none" stroke="#000" stroke-width="2"/></g>
+    <g class="th"><path d="M470 52 Q500 30 532 44 Q504 70 470 52 Z" fill="#4FA37F" stroke="#000" stroke-width="3" stroke-linejoin="round"/><path d="M474 52 Q502 46 528 45" fill="none" stroke="#000" stroke-width="2"/></g>
     <g class="th"><path d="M540 118 Q542 130 554 132 Q542 134 540 146 Q538 134 526 132 Q538 130 540 118 Z" fill="#000"/></g>
   </g>
   <!-- the lid, hinged at the left -->
@@ -87,22 +86,22 @@
   </g>
 </svg>
 
-          <div class="dream" id="dream" aria-label="Pine Dijital Reklam Ajansı"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 3.2A9 9 0 1 0 20.8 16 7 7 0 0 1 15.5 3.2Z" fill="#F2C230" stroke="#000" stroke-width="1.8" stroke-linejoin="round"/></svg><span aria-hidden="true"><small>Hoş geldiniz:</small><b>Pine Dijital Reklam Ajansı</b></span></div>
+          <div class="dream" id="dream" aria-label="Pine Dijital Reklam Ajansı"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 3.2A9 9 0 1 0 20.8 16 7 7 0 0 1 15.5 3.2Z" fill="#F16726" stroke="#000" stroke-width="1.8" stroke-linejoin="round"/></svg><span aria-hidden="true"><small>Hoş geldiniz:</small><b>Pine Dijital Reklam Ajansı</b></span></div>
           <div class="shirt">
             <p class="role" id="role"><span class="role-title">Dijital Reklam Ajansı</span> Web, sosyal medya ve prodüksiyonla markanızı öne çıkarıyoruz</p>
             <p class="hint-m" id="hintM" aria-hidden="true"><span>İçeri girmek için kaydır</span></p>
             <div class="contact" id="contact">
               <h2 data-amp="5">İletişime geç</h2>
               <div class="links">
-                <span class="mail-wrap"><a class="primary" id="mail" href="mailto:info@pinedigitals.com">info@pinedigitals.com</a><button class="copy" id="copyMail" type="button" data-copy="info@pinedigitals.com" aria-label="Copy email address"><svg class="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.5"/><path d="M15.5 8.5V6A2.5 2.5 0 0 0 13 3.5H6A2.5 2.5 0 0 0 3.5 6v7A2.5 2.5 0 0 0 6 15.5h2.5"/></svg><svg class="i-done" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11"/></svg><span class="copy-tip" aria-hidden="true">Copied</span></button><span class="sr-only" id="copyStatus" aria-live="polite"></span></span>
-                <a href="https://www.instagram.com/pinedigitals/" target="_blank" rel="noopener">Instagram</a>
-                <a href="https://pinedigitals.com" target="_blank" rel="noopener">pinedigitals.com</a>
+                <span class="mail-wrap"><a class="primary" id="mail" lang="en" href="mailto:info@pinedigitals.com">info@pinedigitals.com</a><button class="copy" id="copyMail" type="button" data-copy="info@pinedigitals.com" aria-label="E-posta adresini kopyala"><svg class="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.5"/><path d="M15.5 8.5V6A2.5 2.5 0 0 0 13 3.5H6A2.5 2.5 0 0 0 3.5 6v7A2.5 2.5 0 0 0 6 15.5h2.5"/></svg><svg class="i-done" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11"/></svg><span class="copy-tip" aria-hidden="true">Kopyalandı</span></button><span class="sr-only" id="copyStatus" aria-live="polite"></span></span>
+                <a lang="en" href="https://www.instagram.com/pinedigitals/" target="_blank" rel="noopener">Instagram</a>
+                <a lang="en" href="https://pinedigitals.com" target="_blank" rel="noopener">pinedigitals.com</a>
               </div>
             </div>
           </div>
         </div>
         <div class="cursor" id="cursor" aria-hidden="true">
-              <svg viewBox="0 0 22 24"><path d="M2 2 L2 20 L7 15.5 L10.5 22.5 L13.5 21 L10 14 L17 14 Z" fill="#0A6FC2" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              <svg viewBox="0 0 22 24"><path d="M2 2 L2 20 L7 15.5 L10.5 22.5 L13.5 21 L10 14 L17 14 Z" fill="#C2410C" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>
               <b id="cursorLabel">Pine</b>
             </div>
       </div>
@@ -110,7 +109,7 @@
     </section>
 
     <!-- 1. Hello -->
-    <section class="layer" id="hello" data-bg="hibiscus" aria-label="Hello">
+    <section class="layer" id="hello" data-bg="hibiscus" aria-label="Merhaba">
       <div class="doodles" aria-hidden="true">
         <svg class="spark" viewBox="0 0 24 24" style="left:11%;top:22%;width:46px"><path d="M12 0 Q13.4 10.6 24 12 Q13.4 13.4 12 24 Q10.6 13.4 0 12 Q10.6 10.6 12 0 Z"/></svg>
         <svg class="spark" viewBox="0 0 24 24" style="left:20%;top:70%;width:26px"><path d="M12 0 Q13.4 10.6 24 12 Q13.4 13.4 12 24 Q10.6 13.4 0 12 Q10.6 10.6 12 0 Z"/></svg>
@@ -124,7 +123,7 @@
     </section>
 
     <!-- 2. Systems -->
-    <section class="layer" id="systems" data-bg="monsoon" aria-label="What I do">
+    <section class="layer" id="systems" data-bg="monsoon" aria-label="Ne yapıyoruz">
       <div class="sys">
         <p class="sys-small" id="sysSmall" data-amp="3">Biz kuruyoruz</p>
         <h2 class="sys-word" id="sysWord">markalar.</h2>
@@ -145,7 +144,7 @@
     </section>
 
     <!-- 2b. Beliefs -->
-    <section class="layer" id="beliefs" data-bg="deep" aria-label="What I believe">
+    <section class="layer" id="beliefs" data-bg="deep" aria-label="İnançlarımız">
       <div class="bl-scene bl-a" id="blA">
         <h2 class="bl-years">Her gün.</h2>
         <svg class="bl-under" viewBox="0 0 400 30" aria-hidden="true"><path id="blUnder" d="M6 18 Q60 4 120 16 T240 14 T394 12" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/></svg>
@@ -178,11 +177,11 @@
       </div>
       <div class="bl-scene bl-c" id="blC">
         <p class="c1">Vasat fikirleri koruyan kibar sunumlara inanmıyoruz.</p>
-        <p class="c2" data-amp="4">Sıradan, <span class="vanilla">vanilla<svg class="strike" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path id="strikePath" d="M4 26 Q70 8 140 22 T296 14" fill="none" stroke="#E2527F" stroke-width="9" stroke-linecap="round"/></svg></span>.</p>
+        <p class="c2" data-amp="4">Sıradan, <span class="vanilla">vanilla<svg class="strike" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path id="strikePath" d="M4 26 Q70 8 140 22 T296 14" fill="none" stroke="#F16726" stroke-width="9" stroke-linecap="round"/></svg></span>.</p>
         <p class="c3">Bir omurgası olan işlere inanıyoruz: kendine benzeyen markalar, kimsenin istemediği detaylarla ilgilenen insanlar tarafından yapılmış.</p>
       </div>
       <div class="bl-scene bl-d" id="blD">
-        <div class="bl-doodles" aria-hidden="true"><span class="dd dd-pen" data-depth="18" style="--x:9%;--y:21%;--w:4.2vw;--t:5.2s;--dl:0s;--mx:12%;--my:17%;--mw:11vw"><span class="ddp"><span class="ddf"><svg viewBox="0 0 60 70"><path d="M30 6 L48 34 L40 54 L20 54 L12 34 Z" fill="#fff" stroke="#000" stroke-width="3" stroke-linejoin="round"/><path d="M30 6 L30 30" stroke="#000" stroke-width="2.5"/><circle cx="30" cy="34" r="5" fill="#000"/><rect x="18" y="54" width="24" height="10" rx="2" fill="#F2C230" stroke="#000" stroke-width="3" stroke-linejoin="round"/></svg></span></span></span><span class="dd dd-bez" data-depth="10" style="--x:14%;--y:44%;--w:9vw;--t:6.4s;--dl:0.6s;--mx:38%;--my:14%;--mw:22vw"><span class="ddp"><span class="ddf"><svg viewBox="0 0 120 70"><path d="M10 58 L30 12 M110 58 L90 12" stroke="#0D99FF" stroke-width="2"/><path d="M10 58 C30 12 90 12 110 58" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/><rect x="5.5" y="53.5" width="9" height="9" fill="#fff" stroke="#0D99FF" stroke-width="2.5"/><rect x="105.5" y="53.5" width="9" height="9" fill="#fff" stroke="#0D99FF" stroke-width="2.5"/><circle cx="30" cy="12" r="4.5" fill="#0D99FF"/><circle cx="90" cy="12" r="4.5" fill="#0D99FF"/></svg></span></span></span><span class="dd dd-sw" data-depth="14" style="--x:8%;--y:68%;--w:5.6vw;--t:5.8s;--dl:1.1s;--mx:14%;--my:83%;--mw:15vw"><span class="ddp"><span class="ddf"><svg viewBox="0 0 90 90"><rect x="32" y="18" width="26" height="62" rx="8" fill="#E2527F" stroke="#000" stroke-width="3" stroke-linejoin="round" transform="rotate(-24 45 80)"/><rect x="32" y="18" width="26" height="62" rx="8" fill="#F2C230" stroke="#000" stroke-width="3" stroke-linejoin="round"/><rect x="32" y="18" width="26" height="62" rx="8" fill="#5AA84F" stroke="#000" stroke-width="3" stroke-linejoin="round" transform="rotate(24 45 80)"/><circle cx="45" cy="72" r="3.5" fill="#000"/></svg></span></span></span><span class="dd dd-card dd-hide-m" data-depth="8" style="--x:17%;--y:85%;--w:7.2vw;--t:6.8s;--dl:0.3s;--mw:0"><span class="ddp"><span class="ddf"><svg viewBox="0 0 110 80"><rect x="4" y="4" width="102" height="72" rx="12" fill="#fff" stroke="#000" stroke-width="3" stroke-linejoin="round"/><circle cx="24" cy="26" r="9" fill="#6477DB" stroke="#000" stroke-width="2.5"/><rect x="40" y="19" width="50" height="6" rx="3" fill="#000"/><rect x="40" y="31" width="34" height="5" rx="2.5" fill="#BDBDBD"/><rect x="16" y="50" width="44" height="14" rx="7" fill="#000"/></svg></span></span></span><span class="dd dd-team" data-depth="16" style="--x:89%;--y:22%;--w:8.6vw;--t:5.6s;--dl:0.4s;--mx:74%;--my:17%;--mw:24vw"><span class="ddp"><span class="ddf"><svg viewBox="0 0 130 70"><path d="M22 46 L65 28 L108 46" fill="none" stroke="#fff" stroke-width="2.5" stroke-dasharray="4 6" stroke-linecap="round"/><circle cx="22" cy="46" r="15" fill="#E2527F" stroke="#000" stroke-width="3"/><circle cx="17" cy="44" r="2.2" fill="#000"/><circle cx="27" cy="44" r="2.2" fill="#000"/><path d="M17 51 Q22 55 27 51" fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round"/><circle cx="108" cy="46" r="15" fill="#6477DB" stroke="#000" stroke-width="3"/><circle cx="103" cy="44" r="2.2" fill="#000"/><circle cx="113" cy="44" r="2.2" fill="#000"/><path d="M103 51 Q108 55 113 51" fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round"/><circle cx="65" cy="28" r="17" fill="#fff" stroke="#000" stroke-width="3"/><circle cx="60" cy="26" r="2.2" fill="#000"/><circle cx="70" cy="26" r="2.2" fill="#000"/><path d="M60 33 Q65 37 70 33" fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round"/></svg></span></span></span><span class="dd dd-talk" data-depth="12" style="--x:86%;--y:48%;--w:8vw;--t:6.2s;--dl:1.3s;--mx:50%;--my:85%;--mw:21vw"><span class="ddp"><span class="ddf"><svg viewBox="0 0 120 92"><rect x="46" y="42" width="68" height="40" rx="16" fill="#F2C230" stroke="#000" stroke-width="3" stroke-linejoin="round"/><path d="M96 80 L104 90 L86 81" fill="#F2C230" stroke="#000" stroke-width="3" stroke-linejoin="round"/><rect x="60" y="58" width="40" height="6" rx="3" fill="#000"/><rect x="6" y="8" width="72" height="44" rx="18" fill="#fff" stroke="#000" stroke-width="3" stroke-linejoin="round"/><path d="M22 50 L16 64 L36 51" fill="#fff" stroke="#000" stroke-width="3" stroke-linejoin="round"/><g class="dots"><circle cx="27" cy="30" r="4.5" fill="#000"/><circle cx="42" cy="30" r="4.5" fill="#000"/><circle cx="57" cy="30" r="4.5" fill="#000"/></g></svg></span></span></span><span class="dd dd-flag" data-depth="18" style="--x:91%;--y:73%;--w:5.4vw;--t:5s;--dl:0.8s;--mx:86%;--my:81%;--mw:15vw"><span class="ddp"><span class="ddf"><svg viewBox="0 0 80 100"><path d="M4 96 Q40 68 76 96 Z" fill="#5AA84F" stroke="#000" stroke-width="3" stroke-linejoin="round"/><path d="M30 84 L30 12" stroke="#fff" stroke-width="4" stroke-linecap="round"/><path class="cloth" d="M31 14 Q46 8 60 16 Q52 24 62 32 Q46 28 31 34 Z" fill="#E2527F" stroke="#000" stroke-width="3" stroke-linejoin="round"/></svg></span></span></span><span class="dd dd-s1" data-depth="22" style="--x:22%;--y:14%;--w:1.4vw;--t:4.2s;--dl:0.2s;--mx:88%;--my:29%;--mw:4vw"><span class="ddp"><span class="ddf"><svg viewBox="0 0 24 24"><path d="M12 0 Q13 10 24 12 Q13 14 12 24 Q11 14 0 12 Q11 10 12 0 Z" fill="#fff"/></svg></span></span></span><span class="dd dd-s2 dd-hide-m" data-depth="20" style="--x:79%;--y:86%;--w:1.8vw;--t:4.8s;--dl:1.6s;--mw:0"><span class="ddp"><span class="ddf"><svg viewBox="0 0 24 24"><path d="M12 0 Q13 10 24 12 Q13 14 12 24 Q11 14 0 12 Q11 10 12 0 Z" fill="#fff"/></svg></span></span></span><span class="dd dd-s3" data-depth="24" style="--x:95%;--y:36%;--w:1.1vw;--t:3.8s;--dl:0.9s;--mx:6%;--my:72%;--mw:4vw"><span class="ddp"><span class="ddf"><svg viewBox="0 0 24 24"><path d="M12 0 Q13 10 24 12 Q13 14 12 24 Q11 14 0 12 Q11 10 12 0 Z" fill="#fff"/></svg></span></span></span></div>
+        <div class="bl-doodles" aria-hidden="true"><span class="dd dd-pen" data-depth="18" style="--x:9%;--y:21%;--w:4.2vw;--t:5.2s;--dl:0s;--mx:12%;--my:17%;--mw:11vw"><span class="ddp"><span class="ddf"><svg viewBox="0 0 60 70"><path d="M30 6 L48 34 L40 54 L20 54 L12 34 Z" fill="#fff" stroke="#000" stroke-width="3" stroke-linejoin="round"/><path d="M30 6 L30 30" stroke="#000" stroke-width="2.5"/><circle cx="30" cy="34" r="5" fill="#000"/><rect x="18" y="54" width="24" height="10" rx="2" fill="#F16726" stroke="#000" stroke-width="3" stroke-linejoin="round"/></svg></span></span></span><span class="dd dd-bez" data-depth="10" style="--x:14%;--y:44%;--w:9vw;--t:6.4s;--dl:0.6s;--mx:38%;--my:14%;--mw:22vw"><span class="ddp"><span class="ddf"><svg viewBox="0 0 120 70"><path d="M10 58 L30 12 M110 58 L90 12" stroke="#F16726" stroke-width="2"/><path d="M10 58 C30 12 90 12 110 58" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/><rect x="5.5" y="53.5" width="9" height="9" fill="#fff" stroke="#F16726" stroke-width="2.5"/><rect x="105.5" y="53.5" width="9" height="9" fill="#fff" stroke="#F16726" stroke-width="2.5"/><circle cx="30" cy="12" r="4.5" fill="#F16726"/><circle cx="90" cy="12" r="4.5" fill="#F16726"/></svg></span></span></span><span class="dd dd-sw" data-depth="14" style="--x:8%;--y:68%;--w:5.6vw;--t:5.8s;--dl:1.1s;--mx:14%;--my:83%;--mw:15vw"><span class="ddp"><span class="ddf"><svg viewBox="0 0 90 90"><rect x="32" y="18" width="26" height="62" rx="8" fill="#F16726" stroke="#000" stroke-width="3" stroke-linejoin="round" transform="rotate(-24 45 80)"/><rect x="32" y="18" width="26" height="62" rx="8" fill="#F16726" stroke="#000" stroke-width="3" stroke-linejoin="round"/><rect x="32" y="18" width="26" height="62" rx="8" fill="#4FA37F" stroke="#000" stroke-width="3" stroke-linejoin="round" transform="rotate(24 45 80)"/><circle cx="45" cy="72" r="3.5" fill="#000"/></svg></span></span></span><span class="dd dd-card dd-hide-m" data-depth="8" style="--x:17%;--y:85%;--w:7.2vw;--t:6.8s;--dl:0.3s;--mw:0"><span class="ddp"><span class="ddf"><svg viewBox="0 0 110 80"><rect x="4" y="4" width="102" height="72" rx="12" fill="#fff" stroke="#000" stroke-width="3" stroke-linejoin="round"/><circle cx="24" cy="26" r="9" fill="#7FB8A4" stroke="#000" stroke-width="2.5"/><rect x="40" y="19" width="50" height="6" rx="3" fill="#000"/><rect x="40" y="31" width="34" height="5" rx="2.5" fill="#BDBDBD"/><rect x="16" y="50" width="44" height="14" rx="7" fill="#000"/></svg></span></span></span><span class="dd dd-team" data-depth="16" style="--x:89%;--y:22%;--w:8.6vw;--t:5.6s;--dl:0.4s;--mx:74%;--my:17%;--mw:24vw"><span class="ddp"><span class="ddf"><svg viewBox="0 0 130 70"><path d="M22 46 L65 28 L108 46" fill="none" stroke="#fff" stroke-width="2.5" stroke-dasharray="4 6" stroke-linecap="round"/><circle cx="22" cy="46" r="15" fill="#F16726" stroke="#000" stroke-width="3"/><circle cx="17" cy="44" r="2.2" fill="#000"/><circle cx="27" cy="44" r="2.2" fill="#000"/><path d="M17 51 Q22 55 27 51" fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round"/><circle cx="108" cy="46" r="15" fill="#7FB8A4" stroke="#000" stroke-width="3"/><circle cx="103" cy="44" r="2.2" fill="#000"/><circle cx="113" cy="44" r="2.2" fill="#000"/><path d="M103 51 Q108 55 113 51" fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round"/><circle cx="65" cy="28" r="17" fill="#fff" stroke="#000" stroke-width="3"/><circle cx="60" cy="26" r="2.2" fill="#000"/><circle cx="70" cy="26" r="2.2" fill="#000"/><path d="M60 33 Q65 37 70 33" fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round"/></svg></span></span></span><span class="dd dd-talk" data-depth="12" style="--x:86%;--y:48%;--w:8vw;--t:6.2s;--dl:1.3s;--mx:50%;--my:85%;--mw:21vw"><span class="ddp"><span class="ddf"><svg viewBox="0 0 120 92"><rect x="46" y="42" width="68" height="40" rx="16" fill="#F16726" stroke="#000" stroke-width="3" stroke-linejoin="round"/><path d="M96 80 L104 90 L86 81" fill="#F16726" stroke="#000" stroke-width="3" stroke-linejoin="round"/><rect x="60" y="58" width="40" height="6" rx="3" fill="#000"/><rect x="6" y="8" width="72" height="44" rx="18" fill="#fff" stroke="#000" stroke-width="3" stroke-linejoin="round"/><path d="M22 50 L16 64 L36 51" fill="#fff" stroke="#000" stroke-width="3" stroke-linejoin="round"/><g class="dots"><circle cx="27" cy="30" r="4.5" fill="#000"/><circle cx="42" cy="30" r="4.5" fill="#000"/><circle cx="57" cy="30" r="4.5" fill="#000"/></g></svg></span></span></span><span class="dd dd-flag" data-depth="18" style="--x:91%;--y:73%;--w:5.4vw;--t:5s;--dl:0.8s;--mx:86%;--my:81%;--mw:15vw"><span class="ddp"><span class="ddf"><svg viewBox="0 0 80 100"><path d="M4 96 Q40 68 76 96 Z" fill="#4FA37F" stroke="#000" stroke-width="3" stroke-linejoin="round"/><path d="M30 84 L30 12" stroke="#fff" stroke-width="4" stroke-linecap="round"/><path class="cloth" d="M31 14 Q46 8 60 16 Q52 24 62 32 Q46 28 31 34 Z" fill="#F16726" stroke="#000" stroke-width="3" stroke-linejoin="round"/></svg></span></span></span><span class="dd dd-s1" data-depth="22" style="--x:22%;--y:14%;--w:1.4vw;--t:4.2s;--dl:0.2s;--mx:88%;--my:29%;--mw:4vw"><span class="ddp"><span class="ddf"><svg viewBox="0 0 24 24"><path d="M12 0 Q13 10 24 12 Q13 14 12 24 Q11 14 0 12 Q11 10 12 0 Z" fill="#fff"/></svg></span></span></span><span class="dd dd-s2 dd-hide-m" data-depth="20" style="--x:79%;--y:86%;--w:1.8vw;--t:4.8s;--dl:1.6s;--mw:0"><span class="ddp"><span class="ddf"><svg viewBox="0 0 24 24"><path d="M12 0 Q13 10 24 12 Q13 14 12 24 Q11 14 0 12 Q11 10 12 0 Z" fill="#fff"/></svg></span></span></span><span class="dd dd-s3" data-depth="24" style="--x:95%;--y:36%;--w:1.1vw;--t:3.8s;--dl:0.9s;--mx:6%;--my:72%;--mw:4vw"><span class="ddp"><span class="ddf"><svg viewBox="0 0 24 24"><path d="M12 0 Q13 10 24 12 Q13 14 12 24 Q11 14 0 12 Q11 10 12 0 Z" fill="#fff"/></svg></span></span></span></div>
         <h2>Biz bunu yapıyoruz.<br>Bunu iyi yapıyoruz.</h2>
         <p>Hatırlanmayı hak eden bir şey kuruyorsanız, konuşalım.</p>
         <p class="bl-open">Marka, web sitesi ve iyi sohbetler için bir fincan <span class="nowrap">kahve.<svg class="coffee" viewBox="0 0 44 48" aria-hidden="true"><g class="wisps" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M15 19 q-3.5 -4 0 -7.5 q3.5 -3.5 0 -7.5"/><path d="M21.5 19 q-3.5 -4 0 -7.5 q3.5 -3.5 0 -7.5"/><path d="M28 19 q-3.5 -4 0 -7.5 q3.5 -3.5 0 -7.5"/></g><path d="M34 26 Q41 26 41 31.5 Q41 37 33 37" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/><path d="M8 23 H35 V32 Q35 42 25 42 H18 Q8 42 8 32 Z" fill="#fff" stroke="#000" stroke-width="2.5" stroke-linejoin="round"/><ellipse cx="21.5" cy="23" rx="13.5" ry="2.6" fill="#6B4430" stroke="#000" stroke-width="2.5"/><path d="M4 45.5 H39" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg></span></p>
@@ -190,7 +189,7 @@
     </section>
 
     <!-- 3. Based -->
-    <section class="layer" id="based" data-bg="backwater" aria-label="Where I am">
+    <section class="layer" id="based" data-bg="backwater" aria-label="Neredeyiz">
       <div class="based">
         <div class="based-copy"><h2 class="based-text" id="basedText" data-amp="11"><span>Merkezimiz</span><span>Bolu.</span></h2>
         <div class="doodles" aria-hidden="true"><svg class="hills" viewBox="0 0 1000 120" preserveAspectRatio="none"><path d="M0 120 L0 84 Q90 40 180 70 Q260 96 330 58 Q420 8 520 56 Q600 92 680 50 Q770 6 860 48 Q930 78 1000 60 L1000 120 Z" fill="rgba(255,255,255,.05)" stroke="currentColor" stroke-opacity=".4" stroke-width="2" vector-effect="non-scaling-stroke"/><path d="M0 120 L0 100 Q140 70 260 92 Q400 116 520 86 Q680 52 820 90 Q920 112 1000 96 L1000 120 Z" fill="rgba(255,255,255,.05)" stroke="currentColor" stroke-opacity=".28" stroke-width="2" vector-effect="non-scaling-stroke"/></svg><svg class="palm far" viewBox="0 0 120 220" style="left:5%;width:clamp(60px,6.5vw,96px)"><path d="M60 220 Q50 150 66 72" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/><path d="M66 70 Q30 48 2 82 Q34 62 64 78 Z M66 70 Q40 26 8 34 Q42 44 64 76 Z M66 70 Q82 24 116 28 Q84 44 68 76 Z M66 70 Q106 56 120 96 Q98 70 68 78 Z M66 70 Q58 30 70 4 Q76 40 70 74 Z" fill="currentColor"/><circle cx="60" cy="82" r="7" fill="currentColor"/><circle cx="72" cy="84" r="7" fill="currentColor"/></svg><svg class="palm " viewBox="0 0 120 220" style="left:76%;width:clamp(70px,7.5vw,112px)"><path d="M60 220 Q50 150 66 72" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/><path d="M66 70 Q30 48 2 82 Q34 62 64 78 Z M66 70 Q40 26 8 34 Q42 44 64 76 Z M66 70 Q82 24 116 28 Q84 44 68 76 Z M66 70 Q106 56 120 96 Q98 70 68 78 Z M66 70 Q58 30 70 4 Q76 40 70 74 Z" fill="currentColor"/><circle cx="60" cy="82" r="7" fill="currentColor"/><circle cx="72" cy="84" r="7" fill="currentColor"/></svg><svg class="palm far" viewBox="0 0 120 220" style="left:89%;width:clamp(50px,5vw,80px)"><path d="M60 220 Q50 150 66 72" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/><path d="M66 70 Q30 48 2 82 Q34 62 64 78 Z M66 70 Q40 26 8 34 Q42 44 64 76 Z M66 70 Q82 24 116 28 Q84 44 68 76 Z M66 70 Q106 56 120 96 Q98 70 68 78 Z M66 70 Q58 30 70 4 Q76 40 70 74 Z" fill="currentColor"/><circle cx="60" cy="82" r="7" fill="currentColor"/><circle cx="72" cy="84" r="7" fill="currentColor"/></svg><svg class="cup" id="cup" viewBox="0 0 110 140" style="left:12%;width:clamp(48px,5vw,76px)"><g id="steam"><path d="M42 36 Q34 24 42 12 Q50 0 42 -12 M58 34 Q50 20 58 8 Q66 -4 58 -16" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></g><path class="skin" d="M4 104 L106 104 L96 138 L14 138 Z" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"/><path class="skin" d="M28 44 L82 44 L74 120 L36 120 Z" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"/><ellipse class="deep" cx="55" cy="44" rx="27" ry="6" stroke="currentColor" stroke-width="3.5"/></svg></div>
@@ -207,32 +206,32 @@
             <rect x="150" y="130" width="44" height="12" rx="3" fill="#2B2B2B" stroke="#000" stroke-width="2"/>
             <!-- passenger -->
             <rect x="222" y="104" width="44" height="40" rx="6" fill="#3A3A3A" stroke="#000" stroke-width="2"/>
-            <path d="M228 140 Q228 106 244 104 Q260 106 262 140 Z" fill="#C8455A" stroke="#000" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M228 140 Q228 106 244 104 Q260 106 262 140 Z" fill="#C94A12" stroke="#000" stroke-width="2.5" stroke-linejoin="round"/>
             <circle class="skin" cx="244" cy="89" r="13" stroke="#000" stroke-width="2.5"/>
             <path d="M231 88 Q230 74 244 74 Q258 74 258 88 Q258 100 262 104 L254 100 Q256 84 244 82 Q234 82 234 96 Z" fill="#000"/>
             <!-- pillar -->
             <path d="M206 46 L206 150" stroke="#000" stroke-width="3"/>
             <!-- yellow canopy with the side cut open -->
-            <path d="M100 44 Q104 24 128 24 L290 24 Q328 24 328 66 L328 150 L272 150 L272 46 L136 46 L136 116 L100 116 Z" fill="#F2C230" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M100 44 Q104 24 128 24 L290 24 Q328 24 328 66 L328 150 L272 150 L272 46 L136 46 L136 116 L100 116 Z" fill="#F16726" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
             <path d="M102 36 Q108 22 128 22 L290 22 Q330 22 330 64" fill="none" stroke="#000" stroke-width="8" stroke-linecap="round"/>
             <rect x="272" y="130" width="56" height="9" fill="#000"/>
             <!-- windscreen -->
             <path d="M108 46 L132 46 L132 110 L102 110 Z" fill="rgba(255,255,255,.6)" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
             <path d="M112 54 L118 54 L110 96" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".8"/>
             <!-- green front face and fender -->
-            <path d="M100 110 L136 110 L136 196 L84 196 Q80 150 100 110 Z" fill="#3E9B5C" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
-            <path d="M102 116 L134 116" stroke="#F2C230" stroke-width="5"/>
+            <path d="M100 110 L136 110 L136 196 L84 196 Q80 150 100 110 Z" fill="#2D6A57" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M102 116 L134 116" stroke="#F16726" stroke-width="5"/>
             <circle cx="112" cy="134" r="7" fill="#FFF3B0" stroke="#000" stroke-width="2.5"/>
-            <rect x="96" y="146" width="12" height="6" rx="2" fill="#F08A24" stroke="#000" stroke-width="1.5"/>
-            <path d="M42 206 Q46 174 72 172 Q100 172 106 206 Z" fill="#3E9B5C" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+            <rect x="96" y="146" width="12" height="6" rx="2" fill="#FFB27A" stroke="#000" stroke-width="1.5"/>
+            <path d="M42 206 Q46 174 72 172 Q100 172 106 206 Z" fill="#2D6A57" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
             <!-- floor board -->
-            <rect x="104" y="184" width="150" height="12" rx="3" fill="#2F7A48" stroke="#000" stroke-width="2.5"/>
+            <rect x="104" y="184" width="150" height="12" rx="3" fill="#19322E" stroke="#000" stroke-width="2.5"/>
             <!-- green rear body -->
-            <path d="M150 150 L312 150 Q336 152 337 178 L337 198 Q337 206 328 206 L302 206 Q300 178 272 178 Q244 178 242 206 L150 206 Z" fill="#3E9B5C" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
-            <path d="M156 168 L236 168" stroke="#2F7A48" stroke-width="3" stroke-linecap="round"/>
-            <rect x="298" y="160" width="28" height="15" rx="2" fill="#F2C230" stroke="#000" stroke-width="2"/>
+            <path d="M150 150 L312 150 Q336 152 337 178 L337 198 Q337 206 328 206 L302 206 Q300 178 272 178 Q244 178 242 206 L150 206 Z" fill="#2D6A57" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M156 168 L236 168" stroke="#19322E" stroke-width="3" stroke-linecap="round"/>
+            <rect x="298" y="160" width="28" height="15" rx="2" fill="#F16726" stroke="#000" stroke-width="2"/>
             <text x="312" y="171" transform="translate(624 0) scale(-1 1)" text-anchor="middle" font-size="8" font-weight="700" fill="#000" font-family="Big Shoulders, sans-serif">14</text>
-            <rect x="331" y="158" width="6" height="12" rx="2" fill="#D63A3A" stroke="#000" stroke-width="1.5"/>
+            <rect x="331" y="158" width="6" height="12" rx="2" fill="#F16726" stroke="#000" stroke-width="1.5"/>
             <!-- wheels -->
             <g class="wheel" id="wf"><circle cx="72" cy="206" r="24" fill="#111" stroke="#000" stroke-width="2"/><circle cx="72" cy="206" r="10" fill="#BDBDBD" stroke="#000" stroke-width="2"/><path d="M72 196 L72 216 M62 206 L82 206" stroke="#555" stroke-width="2.5"/></g>
             <g class="wheel" id="wr"><circle cx="272" cy="206" r="24" fill="#111" stroke="#000" stroke-width="2"/><circle cx="272" cy="206" r="10" fill="#BDBDBD" stroke="#000" stroke-width="2"/><path d="M272 196 L272 216 M262 206 L282 206" stroke="#555" stroke-width="2.5"/></g>
@@ -253,35 +252,35 @@
 
         <a class="proj" href="work/teras-gayrimenkul.html" data-case="teras-gayrimenkul">
           <div class="label"><span>Teras Gayrimenkul</span><em>Web sitesi</em></div>
-          <div class="cover"><img src="work/teras-gayrimenkul-cover.svg" alt="Teras Gayrimenkul kapak görseli" loading="lazy"></div>
+          <div class="cover"><img src="work/img/kapak-teras.webp" alt="Teras Gayrimenkul kapak görseli" loading="lazy"></div>
           <h3>Portföyü vitrine çıkaran emlak sitesi</h3>
           <p>Gayrimenkul portföyünü, ilanları ve iletişimi tek yerde toplayan, hızlı ve güven veren bir kurumsal site.</p>
         </a>
 
         <a class="proj" href="work/batu-gym.html" data-case="batu-gym">
           <div class="label"><span>Batu Gym</span><em>Marka ve sosyal medya</em></div>
-          <div class="cover"><img src="work/batu-gym-cover.svg" alt="Batu Gym kapak görseli" loading="lazy"></div>
+          <div class="cover"><img src="work/img/kapak-batu.webp" alt="Batu Gym kapak görseli" loading="lazy"></div>
           <h3>Salonun enerjisi, ekrana taşındı</h3>
           <p>Spor salonunun enerjisini yansıtan görsel dil, sosyal medya yönetimi ve içerik üretimi.</p>
         </a>
 
         <a class="proj" href="work/kebaps.html" data-case="kebaps">
-          <div class="label"><span>Kebaps</span><em>Marka ve prodüksiyon</em></div>
-          <div class="cover"><img src="work/kebaps-cover.svg" alt="Kebaps kapak görseli" loading="lazy"></div>
+          <div class="label"><span>DK Kebap’s</span><em>Marka ve prodüksiyon</em></div>
+          <div class="cover"><img src="work/img/kapak-kebaps.webp" alt="DK Kebap’s kapak görseli" loading="lazy"></div>
           <h3>İştah açan bir marka dili</h3>
           <p>Restoran için kimlik tasarımı, menü ve ürün çekimleriyle iştah açan bir görsel dünya.</p>
         </a>
 
         <a class="proj" href="work/santa-psikoloji.html" data-case="santa-psikoloji">
           <div class="label"><span>Santa Psikoloji</span><em>Web sitesi</em></div>
-          <div class="cover"><img src="work/santa-psikoloji-cover.svg" alt="Santa Psikoloji kapak görseli" loading="lazy"></div>
+          <div class="cover"><img src="work/img/kapak-santa.webp" alt="Santa Psikoloji kapak görseli" loading="lazy"></div>
           <h3>Sakin, güven veren bir psikoloji sitesi</h3>
           <p>Danışanlara rahat bir ilk adım sunan, sade ve erişilebilir bir web sitesi.</p>
         </a>
 
         <a class="proj" href="work/selin-sak.html" data-case="selin-sak">
           <div class="label"><span>Klinik Psikolog Selin Sak</span><em>Web sitesi</em></div>
-          <div class="cover"><img src="work/selin-sak-cover.svg" alt="Klinik Psikolog Selin Sak kapak görseli" loading="lazy"></div>
+          <div class="cover"><img src="work/img/kapak-selin.webp" alt="Klinik Psikolog Selin Sak kapak görseli" loading="lazy"></div>
           <h3>Uzmanlığı öne çıkaran kişisel site</h3>
           <p>Klinik psikolog için hizmetleri, yaklaşımı ve randevu yolunu net anlatan kişisel web sitesi.</p>
         </a>
@@ -289,7 +288,7 @@
     </section>
 
     <!-- 5. About -->
-    <section class="layer" id="about" data-bg="kokum" aria-label="About">
+    <section class="layer" id="about" data-bg="kokum" aria-label="Hakkımızda">
       <div class="about-inner" style="position:relative">
         <svg class="plane" id="plane" style="color:var(--fg)" viewBox="0 0 260 110" aria-hidden="true"><path id="trail" d="M4 100 Q50 30 96 76 Q128 106 150 70 Q164 46 188 40" fill="none" stroke="currentColor" stroke-width="3.5" stroke-dasharray="7 9" stroke-linecap="round"/><g id="planeBody"><path d="M196 36 L256 6 L226 66 L214 48 Z" fill="#fff" stroke="#000" stroke-width="3.5" stroke-linejoin="round"/><path d="M214 48 L256 6 L206 56 Z" fill="#000"/></g></svg>
         <h2 class="st" id="aboutSt">
@@ -315,12 +314,12 @@
       <div class="head" id="head"></div>
     </div>
   </div>
-</div>
+</main>
 
 <div class="scroll-space" id="space"></div>
 
 <div class="notice" id="notice" role="dialog" aria-labelledby="noticeTitle" aria-describedby="noticeText" hidden>
-  <svg class="notice-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 3.2A9 9 0 1 0 20.8 16 7 7 0 0 1 15.5 3.2Z" fill="#F2C230" stroke="#000" stroke-width="1.8" stroke-linejoin="round"/></svg>
+  <svg class="notice-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 3.2A9 9 0 1 0 20.8 16 7 7 0 0 1 15.5 3.2Z" fill="#F16726" stroke="#000" stroke-width="1.8" stroke-linejoin="round"/></svg>
   <div class="notice-body">
     <p class="notice-title" id="noticeTitle">Bu site büyük ekranda daha güzel</p>
     <p class="notice-text" id="noticeText">Pine Dijital deneyimini tam yaşamak için masaüstü tarayıcıdan açın.</p>
@@ -333,5 +332,5 @@
     <span class="cs-title" id="csTitle">Vaka çalışması</span>
     <a class="cs-back cs-dl" id="csDl" href="#" download hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>İndir</a>
   </div>
-  <div class="cs-body"><div class="cs-load" aria-hidden="true"><i></i></div><iframe id="csFrame" title="Case study"></iframe></div>
+  <div class="cs-body"><div class="cs-load" aria-hidden="true"><i></i></div><iframe id="csFrame" title="Vaka çalışması"></iframe></div>
 </div>

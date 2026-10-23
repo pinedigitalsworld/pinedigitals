@@ -2,13 +2,11 @@
   /* amplitude: some letters sit short or ride high, like hand set wood type */
   function rng(seed){ return () => ((seed = (seed * 16807) % 2147483647) / 2147483647); }
   function amp(el){
-    const r = rng(+el.dataset.amp || 1);
     el.setAttribute("aria-label", el.textContent.replace(/\s+/g, " ").trim());
     const walk = node => {
       [...node.childNodes].forEach(n => {
         if (n.nodeType === 3){
           const frag = document.createDocumentFragment();
-          let prevSmall = true;
           n.textContent.split(/(\s+)/).forEach(part => {
             if (!part) return;
             if (/^\s+$/.test(part)){ frag.appendChild(document.createTextNode(" ")); return; }
@@ -17,9 +15,6 @@
             w.setAttribute("aria-hidden", "true");
             [...part].forEach(c => {
               const x = document.createElement("span"); x.textContent = c;
-              const v = r();
-              if (/[a-z]/i.test(c) && !prevSmall && v < 0.3){ x.className = "s"; prevSmall = true; }
-              else { prevSmall = false; if (/[a-z]/i.test(c) && v > 0.88) x.className = "u"; }
               w.appendChild(x);
             });
             frag.appendChild(w);
@@ -32,96 +27,6 @@
     el.classList.add("amp");
   }
   document.querySelectorAll("[data-amp]").forEach(amp);
-
-  /* background music: browsers only allow sound after a click, tap or key press,
-     so it starts on the first one (unless the visitor has turned it off) and loops without a seam */
-  (function music(){
-    const btn = document.getElementById("sound"), label = btn.querySelector(".sound-label");
-    const SRC = "audio/interactive-playground.mp3", VOL = 0.45;
-    /* 1st choice: stream it, so it starts after the first few kilobytes.
-       If the stream has not actually started moving within a couple of seconds (some browsers
-       are strict about how streamed audio is served), switch to decoding the file with Web Audio. */
-    const audio = new Audio(SRC);
-    audio.loop = true; audio.preload = "auto"; audio.volume = 0;
-    let ctx = null, gain = null, bufSrc = null, mode = "stream";
-    let playing = false, wanted = true, started = false, fade, check;
-    btn.classList.add("invite");
-    const AC = window.AudioContext || window.webkitAudioContext;
-    function unlock(){ /* create or resume Web Audio inside the gesture, ready for the fallback */
-      if (!AC) return;
-      try { ctx = ctx || new AC(); if (ctx.state === "suspended") ctx.resume(); } catch (_) {}
-    }
-    function ramp(to, ms, done){
-      clearInterval(fade);
-      if (mode === "webaudio"){
-        const t = ctx.currentTime; gain.gain.cancelScheduledValues(t); gain.gain.setValueAtTime(gain.gain.value, t);
-        gain.gain.linearRampToValueAtTime(to, t + ms / 1000); if (done) setTimeout(done, ms); return;
-      }
-      const from = audio.volume, t0 = performance.now();
-      fade = setInterval(() => {
-        const k = Math.min(1, (performance.now() - t0) / ms);
-        try { audio.volume = Math.max(0, Math.min(1, from + (to - from) * k)); } catch (_) {}
-        if (k === 1){ clearInterval(fade); done && done(); }
-      }, 30);
-    }
-    async function toWebAudio(){
-      if (mode === "webaudio" || !AC) return;
-      mode = "webaudio"; audio.pause();
-      try {
-        ctx = ctx || new AC(); if (ctx.state === "suspended") await ctx.resume();
-        const buf = await ctx.decodeAudioData(await (await fetch(SRC)).arrayBuffer());
-        gain = ctx.createGain(); gain.gain.value = 0; gain.connect(ctx.destination);
-        bufSrc = ctx.createBufferSource(); bufSrc.buffer = buf; bufSrc.loop = true; bufSrc.connect(gain); bufSrc.start(0);
-        if (playing) ramp(VOL, 1400); else ctx.suspend();
-      } catch (_) { playing = false; started = false; ui(); }
-    }
-    function watchStream(){
-      clearTimeout(check); const t0 = audio.currentTime;
-      check = setTimeout(() => { if (playing && mode === "stream" && (audio.paused || audio.currentTime <= t0 + 0.05)) toWebAudio(); }, 2200);
-    }
-    function play(){
-      unlock();
-      playing = true; started = true; ui();
-      if (mode === "webaudio"){ if (ctx.state === "suspended") ctx.resume(); ramp(VOL, 1400); return; }
-      let p; try { p = audio.play(); } catch (_) {}
-      ramp(VOL, 1400); watchStream();
-      if (p && p.catch) p.catch(() => { if (playing) toWebAudio(); });
-    }
-    function stop(){
-      playing = false; ui(); clearTimeout(check);
-      ramp(0, 500, () => { if (playing) return; if (mode === "webaudio") ctx.suspend(); else audio.pause(); });
-    }
-    function ui(){
-      btn.classList.toggle("on", playing);
-      btn.classList.toggle("invite", !playing && !started && wanted);
-      btn.setAttribute("aria-pressed", String(playing));
-      btn.setAttribute("aria-label", playing ? "Turn background music off" : "Turn background music on");
-      label.textContent = playing ? "Ses açık" : "Ses kapalı";
-      if (started || !wanted) btn.classList.remove("nudge");
-    }
-    /* show the nudge once the intro has settled, if nothing has started the music by then */
-    setTimeout(() => { if (!started && wanted) btn.classList.add("nudge"); }, 2600);
-    btn.addEventListener("click", e => {
-      e.stopPropagation();
-      if (playing) { wanted = false; stop(); } else { wanted = true; play(); }
-    });
-    /* on by default: try straight away, and otherwise start on the first click, tap or key press */
-    const GESTURES = ["pointerdown", "pointerup", "click", "keydown", "touchend"];
-    const off = () => GESTURES.forEach(n => window.removeEventListener(n, first, true));
-    const first = e => {
-      if (e.target.closest && e.target.closest("#sound")) { off(); return; }
-      if (wanted && !started) play();
-      if (started) off();
-    };
-    GESTURES.forEach(n => window.addEventListener(n, first, true));
-    const auto = audio.play();
-    if (auto && auto.then) auto.then(() => { if (started) return; playing = true; started = true; ui(); ramp(VOL, 1400); off(); }).catch(() => {});
-    document.addEventListener("visibilitychange", () => {
-      if (document.hidden){ if (mode === "webaudio" && ctx) ctx.suspend(); else audio.pause(); return; }
-      if (!playing) return;
-      if (mode === "webaudio") ctx.resume(); else audio.play().catch(() => { playing = false; started = false; ui(); });
-    });
-  })();
 
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduce || !window.gsap) {
@@ -136,7 +41,7 @@
   gsap.registerPlugin(ScrollTrigger);
 
   const $ = s => document.querySelector(s);
-  const C = { deep:"#2A2650", turmeric:"#545388", hibiscus:"#7B3F6E", monsoon:"#3E5591", backwater:"#2B6468", leaf:"#4C6230", kokum:"#8A3D4E" };
+  const C = { deep:"#10201D", turmeric:"#19322E", hibiscus:"#C94A12", monsoon:"#245246", backwater:"#2D6A57", leaf:"#A63D0F", kokum:"#1F4A42" };
   const stage = $("#stage");
 
   /* smooth scroll */
@@ -159,7 +64,7 @@
       x: Math.random() * DW, y: Math.random() * DH,
       r: 0.5 + Math.random() * 1.5, vy: 0.08 + Math.random() * 0.25,
       sway: Math.random() * Math.PI * 2, tw: Math.random() * Math.PI * 2,
-      c: Math.random() < 0.7 ? "244,242,255" : "186,186,251"
+      c: Math.random() < 0.7 ? "255,248,242" : "255,210,184"
     }));
   }
   sizeDust();
@@ -198,15 +103,24 @@
   /* split the hello line into characters, keeping words together */
   const hi = $("#hiLine");
   hi.setAttribute("aria-label", hi.textContent);
-  const hr = rng(21); let hp = true;
+
   hi.innerHTML = hi.textContent.split(" ").map(w =>
-    '<span class="wd" aria-hidden="true">' + [...w].map(c => {
-      const small = /[a-z]/i.test(c) && !hp && hr() < 0.34; hp = small;
-      return '<span class="ch' + (small ? ' sm' : '') + '">' + c + '</span>';
+    '<span class="wd"' + (/^Pine/.test(w) ? ' lang="en"' : '') + ' aria-hidden="true">' + [...w].map(c => {
+      return '<span class="ch">' + c + '</span>';
     }).join("") + "</span>"
   ).join(" ");
   hi.classList.add("amp");
   const chars = hi.querySelectorAll(".ch");
+  /* one row on wide screens: shrink the type until the whole line fits inside the frame */
+  function fitHi(){
+    hi.style.fontSize = "";
+    if (matchMedia("(max-width: 720px)").matches) return;
+    const wds = hi.querySelectorAll(".wd"), first = wds[0], last = wds[wds.length - 1];
+    const w = last.offsetLeft + last.offsetWidth - first.offsetLeft, max = stage.clientWidth * 0.88;
+    if (w > max) hi.style.fontSize = (parseFloat(getComputedStyle(hi).fontSize) * max / w) + "px";
+  }
+  fitHi();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitHi);
 
   /* intro: the name condenses, then a cursor drags a selection around it */
   const nameWrap = $("#nameWrap"), cursor = $("#cursor"), sel = $("#sel"), dim = $("#dim");
@@ -427,19 +341,18 @@
   // 18 to 20: dive back out to the frame, now an invitation
     .set("#role", { autoAlpha: 0 }, 17.9)
     .set("#contact", { autoAlpha: 1 }, 17.9)
-    /* the sign pops in only after the zoom back out has settled (18.4 to 19.4), so it is never magnified across the screen */
-    .fromTo("#dream", { autoAlpha: 0, scale: 0.6, rotation: -20 }, { autoAlpha: 1, scale: 1, rotation: -7, duration: 0.45, ease: "back.out(2)", immediateRender: false }, 19.45)
+    /* the sign pops in only once the character is back on screen */
+    .fromTo("#dream", { autoAlpha: 0, scale: 0.6, rotation: -20 }, { autoAlpha: 1, scale: 1, rotation: -7, duration: 0.45, ease: "back.out(2)", immediateRender: false }, 18.5)
     /* on shorter phones the birds sit where the sign lands, so they fly off as it arrives */
-    .fromTo("#birds", { opacity: 1 }, { opacity: () => tightPhone ? 0 : 1, duration: 0.3, immediateRender: false }, 19.4)
+    .fromTo("#birds", { opacity: 1 }, { opacity: () => tightPhone ? 0 : 1, duration: 0.3, immediateRender: false }, 18.5)
     .to(stage, { "--bg": C.turmeric, duration: 0.9 }, 17.9)
-    .fromTo(tunnel, { scale: 9, autoAlpha: 0 }, { scale: 1.2, autoAlpha: 1, duration: 0.9, ease: "power2.out", immediateRender: false }, 17.9)
-    .to(tunnel, { scale: 0.42, autoAlpha: 0, duration: 0.5 }, 18.8)
-    /* zoom back out of the head. Scale and opacity are separate: the character stays invisible while he is
-       magnified many times over (that showed as big blurry blocks over the rings), and fades in only once he is
-       close to normal size */
-    .fromTo("#heroInner", { scale: 22 }, { scale: 1, transformOrigin: () => origin, duration: 1.0, ease: "power3.out", immediateRender: false }, 18.4)
-    .fromTo("#heroInner", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.32, ease: "power1.inOut", immediateRender: false }, 18.9)
-    .fromTo(".hero-top", { autoAlpha: 0, y: -40 }, { autoAlpha: 1, y: 0, duration: 0.4, immediateRender: false }, 19.1)
+    /* dive back out of the head: rings rush past while the character settles from a moderate zoom. Starting at 1.45x
+       (not the 22x of the dive in) keeps the GPU layers small enough that no tile is dropped (black patches), and he fades in while the rings are still passing */
+    .fromTo(tunnel, { scale: 2.6, autoAlpha: 0 }, { scale: 1.2, autoAlpha: 1, duration: 0.5, ease: "power2.out", immediateRender: false }, 17.75)
+    .to(tunnel, { scale: 0.42, autoAlpha: 0, duration: 0.5 }, 18.15)
+    .fromTo("#heroInner", { scale: 1.45 }, { scale: 1, transformOrigin: () => origin, duration: 0.95, ease: "power3.out", immediateRender: false }, 17.8)
+    .fromTo("#heroInner", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4, ease: "power1.inOut", immediateRender: false }, 17.85)
+    .fromTo(".hero-top", { autoAlpha: 0, y: -40 }, { autoAlpha: 1, y: 0, duration: 0.4, immediateRender: false }, 18.1)
     .addLabel("contact", 20)
     .to({}, { duration: 0.01 }, 20);
 
@@ -510,7 +423,7 @@
     if (p > 0.965 && !handed){
       handed = true;
       if (idleTween) idleTween.pause();
-      $("#cursorLabel").textContent = "Your turn";
+      $("#cursorLabel").textContent = "Sıra sizde";
       const m = $("#mail").getBoundingClientRect(), n = heroIn.getBoundingClientRect();
       gsap.to(cursor, { x: m.left - n.left + m.width * 0.8, y: m.top - n.top + m.height * 0.55, duration: 0.8, ease: "power3.inOut" });
     } else if (p < 0.94 && handed){
@@ -546,5 +459,5 @@
   }
   document.querySelectorAll("[data-go]").forEach(b => b.addEventListener("click", () => go(b.dataset.go)));
 
-  window.addEventListener("resize", () => { fitPhone(); buildTunnel(); measure(); findOrigin(); sizeDust(); });
+  window.addEventListener("resize", () => { fitHi(); fitPhone(); buildTunnel(); measure(); findOrigin(); sizeDust(); });
 })();
