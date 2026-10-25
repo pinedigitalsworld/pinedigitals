@@ -65,7 +65,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--sel);outline-offset
 .grain{position:absolute;inset:0;pointer-events:none;z-index:80;overflow:hidden}
 .grain i{position:absolute;inset:0;display:block}
 /* film grain: pre-rendered noise tiles with plain alpha. Blend modes and SVG turbulence on full-screen layers made the browser drop tiles (dark or light patches) while the page was scaling */
-.grain .g1{inset:-15%;background:url("/grain-light.png") 0 0/256px 256px;animation:film .7s steps(1) infinite}
+.grain .g1{inset:-30%;background:url("/grain-light.png") 0 0/256px 256px;animation:film .7s steps(1) infinite}
 .grain .g2{background:url("/grain-dark.png") 0 0/256px 256px;opacity:.85}
 .grain .g3{display:none}
 @keyframes film{0%{transform:translate(0,0)}14%{transform:translate(-7%,4%)}28%{transform:translate(5%,-8%)}42%{transform:translate(-11%,-3%)}57%{transform:translate(9%,7%)}71%{transform:translate(-4%,10%)}85%{transform:translate(12%,-6%)}}
