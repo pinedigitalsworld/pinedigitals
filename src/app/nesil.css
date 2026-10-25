@@ -229,6 +229,14 @@ html.rm .dream{visibility:visible;opacity:1}
 .proj:hover .cover::after{opacity:1}
 .proj h3{margin-top:14px;min-height:2.05em;font-family:var(--font-serif),"Playfair Display",serif;font-size:clamp(28px,2.8vw,42px);line-height:1;font-weight:500;letter-spacing:-.005em}
 .proj p{margin-top:12px;font-size:18px;line-height:1.35;font-weight:480;max-width:44ch}
+.proj .igcover{background:var(--brand-green);display:grid;place-items:center}
+.igcover b{position:absolute;width:34%;aspect-ratio:3/4;border:2.5px solid var(--ink);border-radius:16px;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.igcover .c1{background:var(--lav);transform:translateX(-34%) rotate(-12deg)}
+.igcover .c2{background:var(--paper);transform:translateX(34%) rotate(12deg)}
+.igcover .c3{display:grid;place-items:center;background:var(--sel);color:var(--ink);transform:rotate(-2deg);z-index:1}
+.igcover .c3 svg{width:46%;height:auto}
+.proj:hover .igcover .c1{transform:translateX(-42%) rotate(-17deg)}
+.proj:hover .igcover .c2{transform:translateX(42%) rotate(17deg)}
 .ph{position:absolute;inset:0}
 .ph small{position:absolute;right:12px;bottom:10px;font-size:11px;opacity:.55;font-weight:600}
 

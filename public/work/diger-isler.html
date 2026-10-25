@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Diğer işlerimiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&amp;family=Playfair+Display:wght@500&amp;display=swap">
+<style>:root{--bg:#F5F1EA;--fg:#22302C;--acc:#B4572B;--green:#19322E;--lav:#FFD2B8}*{box-sizing:border-box;margin:0;padding:0}html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--fg);font:400 18px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:clamp(28px,6vw,72px) clamp(20px,5vw,56px) 80px}
+.kick{font:700 15px/1 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--acc)}
+h1{font-family:"Big Shoulders Display","Big Shoulders",Impact,"Arial Narrow",sans-serif;font-weight:900;font-size:clamp(56px,11vw,150px);line-height:.88;margin:.18em 0 .2em}
+.lede{font-size:clamp(20px,2.2vw,28px);line-height:1.4;max-width:34ch;font-weight:500}
+.hint{margin-top:14px;font-size:15px;opacity:.65}
+.grid{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin-top:clamp(28px,5vw,52px)}
+.flip{perspective:1100px;aspect-ratio:4/3}
+.inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .85s cubic-bezier(.3,.9,.25,1);will-change:transform}
+.flip.on .inner{transform:rotateY(180deg)}
+.flip:not(.on):hover .inner,.flip:not(.on):focus-within .inner{transform:rotateY(-7deg) translateY(-4px)}
+.face{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;border:2.5px solid var(--fg);border-radius:18px;-webkit-backface-visibility:hidden;backface-visibility:hidden;font:inherit;color:inherit}
+.front{background:#fff;cursor:pointer}
+.front strong{font-family:"Playfair Display",Georgia,serif;font-weight:500;font-size:clamp(21px,2.1vw,28px);line-height:1.1;text-wrap:balance}
+.flip:nth-child(3n+2) .front{background:var(--green);color:#fff;border-color:var(--green)}
+.flip:nth-child(3n) .front{background:var(--lav)}
+.back{background:var(--fg);transform:rotateY(180deg);flex-direction:column}
+.back .ig{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;background:var(--bg);color:var(--fg);font:700 16px/1 system-ui,sans-serif;text-decoration:none;transition:background .2s,color .2s}
+.back .ig:hover,.back .ig:focus-visible{background:var(--acc);color:#fff}
+.period{margin-top:14px;font:500 13px/1.45 system-ui,sans-serif;color:var(--bg);opacity:.85;max-width:24ch}
+.period a{color:inherit;text-decoration:underline;text-underline-offset:2px;font-weight:700}
+.period a:hover,.period a:focus-visible{color:var(--lav)}
+.flip:not(.on) .back{visibility:hidden;transition:visibility 0s .85s}
+.flip.on .front{visibility:hidden;transition:visibility 0s .85s}
+button:focus-visible,a:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){.inner{transition-duration:.01s}}</style></head>
+<body><main class="wrap">
+<p class="kick">Sosyal medya yönetimi</p>
+<h1>Diğer işlerimiz</h1>
+<p class="lede">Sosyal medya yönetimini üstlendiğimiz markalardan bir seçki.</p>
+<p class="hint">Bir karta dokunun, arka yüzünde Instagram hesabını bulun.</p>
+<p class="hint">Bazı hesapların yönetimi sonradan başka ekiplere geçti. Kartların arkasında, bizim yönetim dönemimizin sınırı olan paylaşım yer alır; o tarihten sonraki içerikler bize ait değildir.</p>
+<ul class="grid">
+<li class="flip"><div class="inner"><button class="face front" type="button" aria-label="Ersoy Hac Malzemeleri, Instagram bağlantısını göster"><strong>Ersoy Hac Malzemeleri</strong></button><div class="face back"><a class="ig" href="https://www.instagram.com/ersoyhacmalzemeleri/" target="_blank" rel="noopener" tabindex="-1">Instagram’da aç<span aria-hidden="true">↗</span></a></div></div></li>
+<li class="flip"><div class="inner"><button class="face front" type="button" aria-label="Üst Yaka Lokantası, Instagram bağlantısını göster"><strong>Üst Yaka Lokantası</strong></button><div class="face back"><a class="ig" href="https://www.instagram.com/ustyaka1984/" target="_blank" rel="noopener" tabindex="-1">Instagram’da aç<span aria-hidden="true">↗</span></a></div></div></li>
+<li class="flip"><div class="inner"><button class="face front" type="button" aria-label="Bi-Tur Restoran, Instagram bağlantısını göster"><strong>Bi-Tur Restoran</strong></button><div class="face back"><a class="ig" href="https://www.instagram.com/bitur_restaurant/" target="_blank" rel="noopener" tabindex="-1">Instagram’da aç<span aria-hidden="true">↗</span></a><p class="period">Yönetim dönemimiz: <a href="https://www.instagram.com/p/DHqrQuntmur/" target="_blank" rel="noopener" tabindex="-1">bu paylaşıma</a> kadar</p></div></div></li>
+<li class="flip"><div class="inner"><button class="face front" type="button" aria-label="Toktamış Et Şarküteri, Instagram bağlantısını göster"><strong>Toktamış Et Şarküteri</strong></button><div class="face back"><a class="ig" href="https://www.instagram.com/toktamisetsarkuteri/" target="_blank" rel="noopener" tabindex="-1">Instagram’da aç<span aria-hidden="true">↗</span></a><p class="period">Yönetim dönemimiz: <a href="https://www.instagram.com/p/C3-WVtVsUHJ/" target="_blank" rel="noopener" tabindex="-1">bu paylaşıma</a> kadar</p></div></div></li>
+<li class="flip"><div class="inner"><button class="face front" type="button" aria-label="Çizmeciler Akaryakıt A.Ş., Instagram bağlantısını göster"><strong>Çizmeciler Akaryakıt A.Ş.</strong></button><div class="face back"><a class="ig" href="https://www.instagram.com/cizmecilerakaryakit/" target="_blank" rel="noopener" tabindex="-1">Instagram’da aç<span aria-hidden="true">↗</span></a></div></div></li>
+<li class="flip"><div class="inner"><button class="face front" type="button" aria-label="Köfteci Hasan, Instagram bağlantısını göster"><strong>Köfteci Hasan</strong></button><div class="face back"><a class="ig" href="https://www.instagram.com/koftecihasantr/" target="_blank" rel="noopener" tabindex="-1">Instagram’da aç<span aria-hidden="true">↗</span></a><p class="period">Yönetim dönemimiz: <a href="https://www.instagram.com/p/DQ_tBNyjANW/" target="_blank" rel="noopener" tabindex="-1">bu paylaşıma</a> kadar</p></div></div></li>
+<li class="flip"><div class="inner"><button class="face front" type="button" aria-label="Dyt. Sıla Caba Çizmecioğlu, Instagram bağlantısını göster"><strong>Dyt. Sıla Caba Çizmecioğlu</strong></button><div class="face back"><a class="ig" href="https://www.instagram.com/dytslacaba/" target="_blank" rel="noopener" tabindex="-1">Instagram’da aç<span aria-hidden="true">↗</span></a></div></div></li>
+<li class="flip"><div class="inner"><button class="face front" type="button" aria-label="Hilal Örnekbaş, Instagram bağlantısını göster"><strong>Hilal Örnekbaş</strong></button><div class="face back"><a class="ig" href="https://www.instagram.com/hilalornekbas/" target="_blank" rel="noopener" tabindex="-1">Instagram’da aç<span aria-hidden="true">↗</span></a><p class="period">Yönetim dönemimiz: <a href="https://www.instagram.com/p/DLK4at7sTa_/" target="_blank" rel="noopener" tabindex="-1">bu paylaşıma</a> kadar</p></div></div></li>
+<li class="flip"><div class="inner"><button class="face front" type="button" aria-label="Kumsal Bakery, Instagram bağlantısını göster"><strong>Kumsal Bakery</strong></button><div class="face back"><a class="ig" href="https://www.instagram.com/kumsalbakerycafe/" target="_blank" rel="noopener" tabindex="-1">Instagram’da aç<span aria-hidden="true">↗</span></a><p class="period">Yönetim dönemimiz: <a href="https://www.instagram.com/p/C1dzq4xto1K/" target="_blank" rel="noopener" tabindex="-1">bu paylaşıma</a> kadar</p></div></div></li>
+<li class="flip"><div class="inner"><button class="face front" type="button" aria-label="Bost Burger (Bost Cafe Bistro), Instagram bağlantısını göster"><strong>Bost Burger (Bost Cafe Bistro)</strong></button><div class="face back"><a class="ig" href="https://www.instagram.com/bostcafebistro/" target="_blank" rel="noopener" tabindex="-1">Instagram’da aç<span aria-hidden="true">↗</span></a><p class="period">Yönetim dönemimiz: <a href="https://www.instagram.com/p/C7o4e8cpYjV/" target="_blank" rel="noopener" tabindex="-1">bu paylaşıma</a> kadar</p></div></div></li>
+<li class="flip"><div class="inner"><button class="face front" type="button" aria-label="EK Çikolata, Instagram bağlantısını göster"><strong>EK Çikolata</strong></button><div class="face back"><a class="ig" href="https://www.instagram.com/ekcikolatakahve/" target="_blank" rel="noopener" tabindex="-1">Instagram’da aç<span aria-hidden="true">↗</span></a><p class="period">Yönetim dönemimiz: <a href="https://www.instagram.com/p/DaumWQWM9Tw/" target="_blank" rel="noopener" tabindex="-1">bu paylaşıma</a> kadar</p></div></div></li>
+<li class="flip"><div class="inner"><button class="face front" type="button" aria-label="Av. Nazlican Eren Özdoğan, Instagram bağlantısını göster"><strong>Av. Nazlican Eren Özdoğan</strong></button><div class="face back"><a class="ig" href="https://www.instagram.com/av.nazlicaneren/" target="_blank" rel="noopener" tabindex="-1">Instagram’da aç<span aria-hidden="true">↗</span></a><p class="period">Yönetim dönemimiz: <a href="https://www.instagram.com/reel/DSpsHn6CLl2/" target="_blank" rel="noopener" tabindex="-1">bu</a> reels ile <a href="https://www.instagram.com/reel/DW9bvNuiDEa/" target="_blank" rel="noopener" tabindex="-1">bu</a> reels arası</p></div></div></li>
+<li class="flip"><div class="inner"><button class="face front" type="button" aria-label="Selma Coşkun Güzellik Salonu, Instagram bağlantısını göster"><strong>Selma Coşkun Güzellik Salonu</strong></button><div class="face back"><a class="ig" href="https://www.instagram.com/kuafor_selma_coskun_guzellik/" target="_blank" rel="noopener" tabindex="-1">Instagram’da aç<span aria-hidden="true">↗</span></a><p class="period">Yönetim dönemimiz: <a href="https://www.instagram.com/p/DHasHLXtIL5/" target="_blank" rel="noopener" tabindex="-1">bu</a> paylaşım ile <a href="https://www.instagram.com/p/DJq3ZlOCXYy/" target="_blank" rel="noopener" tabindex="-1">bu</a> paylaşım arası</p></div></div></li>
+<li class="flip"><div class="inner"><button class="face front" type="button" aria-label="Lagoon Gölcük, Instagram bağlantısını göster"><strong>Lagoon Gölcük</strong></button><div class="face back"><a class="ig" href="https://www.instagram.com/lagoongolcuk/" target="_blank" rel="noopener" tabindex="-1">Instagram’da aç<span aria-hidden="true">↗</span></a><p class="period">Yönetim dönemimiz: <a href="https://www.instagram.com/p/CydXwitIN95/" target="_blank" rel="noopener" tabindex="-1">bu paylaşıma</a> kadar</p></div></div></li>
+<li class="flip"><div class="inner"><button class="face front" type="button" aria-label="Rayess Çikolata, Instagram bağlantısını göster"><strong>Rayess Çikolata</strong></button><div class="face back"><a class="ig" href="https://www.instagram.com/rayesscikolata/" target="_blank" rel="noopener" tabindex="-1">Instagram’da aç<span aria-hidden="true">↗</span></a><p class="period">Yönetim dönemimiz: <a href="https://www.instagram.com/p/Cx7iSSYoZKh/" target="_blank" rel="noopener" tabindex="-1">bu paylaşıma</a> kadar</p></div></div></li>
+<li class="flip"><div class="inner"><button class="face front" type="button" aria-label="8 Sport (Studio 8), Instagram bağlantısını göster"><strong>8 Sport (Studio 8)</strong></button><div class="face back"><a class="ig" href="https://www.instagram.com/studio8bolu/" target="_blank" rel="noopener" tabindex="-1">Instagram’da aç<span aria-hidden="true">↗</span></a><p class="period">Yönetim dönemimiz: <a href="https://www.instagram.com/p/Cxxz5zBPxXZ/" target="_blank" rel="noopener" tabindex="-1">bu paylaşıma</a> kadar</p></div></div></li>
+</ul>
+</main>
+<script>
+document.querySelectorAll(".flip").forEach(function(f){
+  var front=f.querySelector(".front"),links=f.querySelectorAll(".back a"),link=links[0],back=f.querySelector(".back");
+  function set(on){f.classList.toggle("on",on);links.forEach(function(a){a.tabIndex=on?0:-1});front.setAttribute("aria-expanded",on);if(on)link.focus({preventScroll:true});else front.focus({preventScroll:true})}
+  front.addEventListener("click",function(){set(true)});
+  back.addEventListener("click",function(e){if(e.target===back)set(false)});
+  f.addEventListener("keydown",function(e){if(e.key==="Escape"&&f.classList.contains("on")){e.stopPropagation();set(false)}});
+});
+</script></body></html>
