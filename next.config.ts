@@ -12,7 +12,13 @@ const nextConfig: NextConfig = {
   partialPrefetching: true,
   poweredByHeader: false,
   async headers() {
-    return [{ source: "/:path*", headers: securityHeaders }];
+    /* değişmeyen statik dosyalar tarayıcıda önbelleklenir; güncellemeler en geç bir gün içinde gelir */
+    const cache = [{ key: "Cache-Control", value: "public, max-age=86400, stale-while-revalidate=604800" }];
+    return [
+      { source: "/:path*", headers: securityHeaders },
+      ...["js", "vendor", "fonts", "work/img"].map(d => ({ source: `/${d}/:path*`, headers: cache })),
+      ...["grain-light.png", "grain-dark.png"].map(f => ({ source: `/${f}`, headers: cache })),
+    ];
   },
 };
 

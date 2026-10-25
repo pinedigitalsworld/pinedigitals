@@ -64,22 +64,32 @@
       x: Math.random() * DW, y: Math.random() * DH,
       r: 0.5 + Math.random() * 1.5, vy: 0.08 + Math.random() * 0.25,
       sway: Math.random() * Math.PI * 2, tw: Math.random() * Math.PI * 2,
-      c: Math.random() < 0.7 ? "255,248,242" : "255,210,184"
+      k: Math.random() < 0.7 ? 0 : 1
     }));
   }
   sizeDust();
+  const ALPHAS = [0.25, 0.33, 0.41, 0.5, 0.58, 0.66, 0.7];
+  const FILLS = ["255,248,242", "255,210,184"].map(c => ALPHAS.map(a => "rgba(" + c + "," + a + ")"));
+  const buckets = FILLS.map(() => ALPHAS.map(() => []));
   gsap.ticker.add(() => {
     const push = gsap.utils.clamp(-6, 6, (lenis.velocity || 0) * 0.08);
     dctx.clearRect(0, 0, DW, DH);
+    buckets.forEach(b => b.forEach(l => { l.length = 0; }));
     for (const p of specks){
       p.sway += 0.012; p.tw += 0.03;
       p.y -= p.vy + push; p.x += Math.sin(p.sway) * 0.18;
       if (p.y < -4) { p.y = DH + 4; p.x = Math.random() * DW; }
       if (p.y > DH + 4) { p.y = -4; p.x = Math.random() * DW; }
       const a = 0.25 + 0.45 * (0.5 + 0.5 * Math.sin(p.tw));
-      dctx.fillStyle = "rgba(" + p.c + "," + a.toFixed(2) + ")";
-      dctx.beginPath(); dctx.arc(p.x, p.y, p.r, 0, 6.283); dctx.fill();
+      buckets[p.k][Math.min(ALPHAS.length - 1, Math.round((a - 0.25) / 0.45 * (ALPHAS.length - 1)))].push(p);
     }
+    buckets.forEach((b, k) => b.forEach((list, i) => {
+      if (!list.length) return;
+      dctx.fillStyle = FILLS[k][i];
+      dctx.beginPath();
+      for (const p of list){ dctx.moveTo(p.x + p.r, p.y); dctx.arc(p.x, p.y, p.r, 0, 6.283); }
+      dctx.fill();
+    }));
   });
 
   /* concentric rings: the tunnel continues the rings inside the head */
@@ -174,6 +184,7 @@
     let px = 0, py = 0, queued = false;
     function look(){
       queued = false;
+      if (gsap.getProperty("#heroInner", "opacity") < 0.05) return;
       whites.forEach((w, i) => {
         const r = w.getBoundingClientRect();
         const dx = px - (r.left + r.width / 2), dy = py - (r.top + r.height / 2);
@@ -238,6 +249,12 @@
     });
   }
 
+  /* ruler playhead rides a transform, so scrolling never triggers layout */
+  const headX = gsap.quickSetter("#head", "x", "px");
+  let headW = 0;
+  const sizeHead = () => { headW = $("#head").parentNode.clientWidth; };
+  sizeHead();
+
   /* the master journey, scrubbed by scroll */
   const W = () => window.innerWidth;
   const tl = gsap.timeline({
@@ -246,7 +263,7 @@
       trigger: "#space", start: "top top", end: "bottom bottom", scrub: true,
       invalidateOnRefresh: true,
       onUpdate: self => {
-        gsap.set("#head", { left: (self.progress * 100) + "%" });
+        headX(self.progress * headW);
         ending(self.progress);
       }
     }
@@ -261,7 +278,7 @@
     .fromTo(tunnel, { scaleX: 0.3, scaleY: 0.08, autoAlpha: 0 }, { scaleX: 1.4, scaleY: 1.4, autoAlpha: 1, duration: 0.6, ease: "power1.in" }, 0.6)
     .to(tunnel, { scale: 9, duration: 0.7, ease: "power2.in" }, 1.1)
     .to(tunnel, { autoAlpha: 0, duration: 0.25 }, 1.6)
-    .to(stage, { "--bg": C.hibiscus, duration: 1.2 }, 0.5)
+    .to(stage, { backgroundColor: C.hibiscus, duration: 1.2 }, 0.5)
 
   // 1.8 to 4.6: hello
     .set("#hello", { autoAlpha: 1 }, 1.75)
@@ -275,7 +292,7 @@
     .fromTo("#hiCap", { y: 20, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.4 }, 2.6)
     .to("#hiCap", { autoAlpha: 0, duration: 0.3 }, 3.6)
     .to("#hiLine", { scale: 8, autoAlpha: 0, transformOrigin: "46% 55%", duration: 1.0, ease: "power2.in" }, 3.6)
-    .to(stage, { "--bg": C.monsoon, duration: 1.0 }, 3.9)
+    .to(stage, { backgroundColor: C.monsoon, duration: 1.0 }, 3.9)
     .set("#hello", { autoAlpha: 0 }, 4.65)
 
   // 4.6 to 8: systems, tokens assemble into a component
@@ -296,7 +313,7 @@
     .addLabel("systems", 6.6)
     .to(["#kit", "#sysSmall", "#sysCap"], { yPercent: -30, autoAlpha: 0, duration: 0.6, ease: "power2.in" }, 7.3)
     .to("#sysWord", { scale: 2.2, autoAlpha: 0, duration: 0.7, ease: "power2.in" }, 7.3)
-    .to(stage, { "--bg": C.deep, duration: 0.9 }, 7.4)
+    .to(stage, { backgroundColor: C.deep, duration: 0.9 }, 7.4)
     .set("#systems", { autoAlpha: 0 }, 7.92)
 
   // 8 to 10.9: based, an auto crosses the frame
@@ -315,7 +332,7 @@
     .to("#based .doodles", { yPercent: 30, autoAlpha: 0, duration: 0.5, ease: "power2.in" }, 10.3)
     .to("#basedText > span", { xPercent: -70, autoAlpha: 0, duration: 0.6, stagger: 0.1, ease: "power2.in" }, 10.2)
     .to("#basedCap", { autoAlpha: 0, duration: 0.3 }, 10.2)
-    .to(stage, { "--bg": C.leaf, duration: 0.8 }, 10.3)
+    .to(stage, { backgroundColor: C.leaf, duration: 0.8 }, 10.3)
     .set("#based", { autoAlpha: 0 }, 10.95)
 
   // 10.9 to 15.9: work, a horizontal run of frames
@@ -327,7 +344,7 @@
     .addLabel("work", 11.5)
     .to("#track", { x: () => -(document.querySelector("#track").scrollWidth - stage.clientWidth), duration: 3.6, ease: "power1.inOut" }, 11.7)
     .to("#work", { yPercent: -18, autoAlpha: 0, duration: 0.5, ease: "power2.in" }, 15.4)
-    .to(stage, { "--bg": C.kokum, duration: 0.8 }, 15.5)
+    .to(stage, { backgroundColor: C.kokum, duration: 0.8 }, 15.5)
 
   // 15.9 to 18: about
     .set("#about", { autoAlpha: 1 }, 15.85)
@@ -345,7 +362,7 @@
     .fromTo("#dream", { autoAlpha: 0, scale: 0.6, rotation: -20 }, { autoAlpha: 1, scale: 1, rotation: -7, duration: 0.45, ease: "back.out(2)", immediateRender: false }, 18.5)
     /* on shorter phones the birds sit where the sign lands, so they fly off as it arrives */
     .fromTo("#birds", { opacity: 1 }, { opacity: () => tightPhone ? 0 : 1, duration: 0.3, immediateRender: false }, 18.5)
-    .to(stage, { "--bg": C.turmeric, duration: 0.9 }, 17.9)
+    .to(stage, { backgroundColor: C.turmeric, duration: 0.9 }, 17.9)
     /* dive back out of the head: rings rush past while the character settles from a moderate zoom. Starting at 1.45x
        (not the 22x of the dive in) keeps the GPU layers small enough that no tile is dropped (black patches), and he fades in while the rings are still passing */
     .fromTo(tunnel, { scale: 2.6, autoAlpha: 0 }, { scale: 1.2, autoAlpha: 1, duration: 0.5, ease: "power2.out", immediateRender: false }, 17.75)
@@ -399,7 +416,7 @@
       .fromTo(".bl-open", { y: 20, opacity: 0 }, { y: 0, opacity: 0.85, duration: 0.35 }, d + 0.4)
       .fromTo("#blD .ddp", { scale: 0, rotation: () => gsap.utils.random(-30, 30) }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2.2)", stagger: { each: 0.05, from: "random" } }, d + 0.1)
       .to("#blD", { y: -40, autoAlpha: 0, duration: 0.3, ease: "power2.in" }, d + 1.3)
-      .to(stage, { "--bg": C.backwater, duration: 0.6 }, S + M - 0.6)
+      .to(stage, { backgroundColor: C.backwater, duration: 0.6 }, S + M - 0.6)
       .set("#beliefs", { autoAlpha: 0 }, S + M - 0.05);
   })();
 
@@ -459,5 +476,5 @@
   }
   document.querySelectorAll("[data-go]").forEach(b => b.addEventListener("click", () => go(b.dataset.go)));
 
-  window.addEventListener("resize", () => { fitHi(); fitPhone(); buildTunnel(); measure(); findOrigin(); sizeDust(); });
+  window.addEventListener("resize", () => { sizeHead(); fitHi(); fitPhone(); buildTunnel(); measure(); findOrigin(); sizeDust(); });
 })();

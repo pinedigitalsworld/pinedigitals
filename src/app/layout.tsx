@@ -15,7 +15,7 @@ const serif = Playfair_Display({
   display: "swap",
 });
 
-const SITE = "https://pinedigitals.com";
+const SITE = "https://pinedigital.com.tr";
 const TITLE = "Pine Dijital Reklam Ajansı · Bolu";
 const DESCRIPTION =
   "Pine Dijital, Bolu merkezli dijital reklam ajansıdır. Web tasarım, sosyal medya yönetimi, prodüksiyon ve kurumsal kimlik işlerini tek çatı altında yapıyoruz.";
