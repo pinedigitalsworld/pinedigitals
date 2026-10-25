@@ -175,8 +175,8 @@ html.rm .dream{visibility:visible;opacity:1}
 .sr-only{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .hint{position:absolute;left:var(--pad);bottom:calc(var(--pad) + 44px);display:flex;flex-direction:column;align-items:flex-start;gap:10px;font-size:16px;text-transform:uppercase;letter-spacing:.04em;font-weight:600}
 .hint .line{width:2px;height:38px;background:rgba(255,255,255,.2);position:relative;overflow:hidden}
-.hint .line::after{content:"";position:absolute;left:0;top:-40%;width:100%;height:40%;background:var(--fg);animation:drip 1.8s cubic-bezier(.6,0,.3,1) infinite}
-@keyframes drip{to{top:110%}}
+.hint .line::after{content:"";position:absolute;left:0;top:0;width:100%;height:40%;background:var(--fg);animation:drip 2.4s ease-in-out infinite;will-change:transform;transform:translateY(-100%)}
+@keyframes drip{0%{transform:translateY(-100%);opacity:0}25%{opacity:1}75%{opacity:1}100%{transform:translateY(250%);opacity:0}}
 
 /* tunnel of nested frames */
 .tunnel{position:absolute;inset:0;pointer-events:none;visibility:hidden;opacity:0;will-change:transform}
